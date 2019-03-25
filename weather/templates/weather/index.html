@@ -1,0 +1,52 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'weather/style.css' %}">
+    <title>Hello, world!</title>
+</head>
+
+<body>
+    <nav class="navbar" style="background-color: #3f51b5;">
+        <div class="container ">
+            <h3 style="color: white; padding: 10px;">Whats the weather like?</h3>
+        </div>
+    </nav>
+
+    <div class="container my-container">
+        {% for i in city_weather%}
+        <div class="row">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="http://openweathermap.org/img/w/{{i.icon}}.png" alt="Image">
+                        </div>
+                        <div class="col-md-8">
+                            <h5>{{i.city_name}}</h5>
+                            <p class="no-padding">{{i.city_temp}} &deg;C</p>
+                            <p class="no-padding">{{i.weather_desc}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor%}
+
+
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha386-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
