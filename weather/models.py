@@ -5,3 +5,6 @@ class City(models.Model):
 
     class Meta:
         verbose_name_plural = "cities"
+
+    def __str__(self):
+        return self.city_name
